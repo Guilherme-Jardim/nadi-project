@@ -1,7 +1,4 @@
 import styled from "styled-components";
-import fundoSvg from "../../../public/fundo.svg.ts";
-import { GbuttonContained } from "../Buttons/GButtonContained.jsx";
-import { GContainerOrca } from './styles';
 
 export const GMainContainer = styled.body`
 display: inline;
@@ -19,6 +16,7 @@ display: flex;
 gap: 40px;
 justify-content: space-between;
 padding: 0px 100px;
+padding-top: 10px;
 `;
 
 export const GContainerMenuOptions = styled.div`
@@ -38,6 +36,8 @@ height: 835px;
 display: flex;
 align-items: center;
 justify-content: center;
+transform: 'translateY(-100%)';
+  transition: 'transform 0.5s ease-in';
 `;
 export const GContainerContent = styled.div`
 word-wrap: break-word;
@@ -52,6 +52,9 @@ line-height: 58px;
 display: flex;
 flex-direction: column;
 align-items: center;
+gap: 20px;
+text-align: center;
+height: 400px;
 `;
 
 

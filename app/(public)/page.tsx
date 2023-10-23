@@ -9,7 +9,7 @@ import { GButtonOrca } from '../components/Buttons/GButtonOrca';
 
 export default function Home() {
   return (
-    <S.GMainContainer style={{ background: 'white' }}>
+    <S.GMainContainer>
 
 
       <S.GContainerMenu>
@@ -29,7 +29,7 @@ export default function Home() {
         </S.GContainerContent>
       </S.GContainer>
 
-
+      <h1 className='text-9xl'>asdasd</h1>
 
 
     </S.GMainContainer>
