@@ -1,32 +1,13 @@
 'use client';
-import { styled } from 'styled-components';
-
 export interface GButtonContainedProps {
   textButton: string;
 }
 
-const StyledButtonContained = styled.button`
-display: inline;
-  font-family: "Encode Sans", Sans-serif;
-  font-weight: 500;
-  color: #FFFFFF;
-  background-color: #0FB55C;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  max-width: 165px;
-  min-width: 95px;
-  width: 165px;
-
-  &:hover {
-    background-color: #009D44;
-  }
-`;
 
 export function GbuttonContained({ textButton }: GButtonContainedProps) {
   return (
-    <StyledButtonContained>
+    <button className="inline font-sans font-semibold text-white bg-teal-500 border-none rounded-md cursor-pointer max-w-165 min-w-95 w-165 hover:bg-teal-600">
       {textButton}
-    </StyledButtonContained>
+    </button>
   );
 }

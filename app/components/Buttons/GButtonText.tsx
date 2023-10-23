@@ -9,11 +9,10 @@ export interface GButtonTextProps {
 
 export function GbuttonText({ textButton }: GButtonTextProps) {
   return (
-    <button style={{
-      cursor: "pointer",
-      backgroundColor: 'transparent', border: 'none', maxWidth: '165px', minWidth: '95px', width: '165px'
-    }}>
-      <p style={{ color: 'white' }}>
+    <button
+      className="cursor-pointer bg-transparent border-none max-w-165 min-w-95 w-165"
+    >
+      <p className=' text-white'>
         {textButton}
       </p>
     </button >

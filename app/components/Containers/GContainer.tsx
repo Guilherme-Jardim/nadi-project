@@ -1,22 +1,15 @@
 'use client';
 
-import fundoSvg from "@/public/fundo.svg";
+import { ReactNode } from "react";
 
-export interface GContainerProps {
+export interface GContainProps {
+  children: ReactNode
 }
 
-export function GContainer({ }: GContainerProps) {
+export function GContainer({ children }: GContainProps) {
   return (
-    <div
-      style={{
-        background: "black",
-        backgroundImage: `url(${fundoSvg})`,
-        backgroundSize: "contain",
-        height: 835,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }} >
+    <div className="bg-black bg-cover h-835 flex items-center justify-center">
+      {children}
     </div >
   );
 }

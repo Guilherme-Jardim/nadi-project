@@ -6,32 +6,37 @@ import { GbuttonText } from '../components/Buttons/GButtonText';
 import { GbuttonTextHover } from '../components/Buttons/GButtonTextHover';
 import { GTitle } from '../components/Typography/GTitle';
 import { GButtonOrca } from '../components/Buttons/GButtonOrca';
+import { GMainContainer } from '../components/Containers/GMainContainer';
+import { GContainerMenu } from '../components/Containers/GContainerMenu';
+import { GContainerMenuOptions } from '../components/Containers/GContainerMenuOptions';
+import { GContainer } from '../components/Containers/GContainer';
+import { GContainerContent } from '../components/Containers/GContainerContent';
 
 export default function Home() {
   return (
-    <S.GMainContainer>
+    <GMainContainer>
 
 
-      <S.GContainerMenu>
+      <GContainerMenu>
         <Image alt='teste' src='/logo.png' height="45" width="45" />
-        <S.GContainerMenuOptions>
+        <GContainerMenuOptions>
           <GbuttonText textButton='HOME' />
           <GbuttonTextHover textButton='PORTIFÓLIO' />
           <GbuttonContained textButton='CONTATO' />
-        </S.GContainerMenuOptions>
-      </S.GContainerMenu>
+        </GContainerMenuOptions>
+      </GContainerMenu>
 
-      <S.GContainer>
-        <S.GContainerContent>
+      <GContainer>
+        <GContainerContent>
           <GTitle
             text='Estratégia de marca para empresas visionárias. ' />
           <GButtonOrca textButton='Solicitar Orçamento' />
-        </S.GContainerContent>
-      </S.GContainer>
+        </GContainerContent>
+      </GContainer>
 
       <h1 className='text-9xl'>asdasd</h1>
 
 
-    </S.GMainContainer>
+    </GMainContainer>
   )
 }

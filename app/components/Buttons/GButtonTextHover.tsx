@@ -1,27 +1,16 @@
 'use client';
-import { styled } from 'styled-components';
-
 export interface GButtonTextHoverProps {
   textButton: string;
 }
 
-const StyledParagraph = styled.p`
-  color: #b8b8b8;
 
-  &:hover {
-    color: white;
-  }
-`;
 
 export function GbuttonTextHover({ textButton }: GButtonTextHoverProps) {
   return (
-    <button style={{
-      cursor: "pointer",
-      backgroundColor: 'transparent', border: 'none', maxWidth: '165px', minWidth: '95px', width: '165px'
-    }}>
-      <StyledParagraph>
+    <button className="cursor-pointer bg-transparent border-none max-w-165 min-w-95 w-165">
+      <p className="text-gray-400 hover:text-white">
         {textButton}
-      </StyledParagraph>
+      </p>
     </button>
   );
 }
