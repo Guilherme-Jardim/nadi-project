@@ -19,10 +19,9 @@ import { Fade } from '@mui/material';
 export default function Home() {
 
 
-
   const myComponentRef = useRef<HTMLDivElement | null>(null);
-
   const [isVisible, setIsVisible] = useState(false);
+  const [isPermanentVisible, setIsPermanentVisible] = useState(false);
 
   useEffect(() => {
     const options = {
@@ -34,6 +33,9 @@ export default function Home() {
     const callback = (entries: any[]) => {
       const entry = entries[0];
       setIsVisible(entry.isIntersecting);
+      if (entry.isIntersecting && !isPermanentVisible) {
+        setIsPermanentVisible(true); // Definir como verdadeiro na primeira vez que se tornar visível
+      }
     };
 
     const observer = new IntersectionObserver(callback, options);
@@ -46,7 +48,7 @@ export default function Home() {
         observer.unobserve(myComponentRef.current);
       }
     };
-  }, []);
+  }, [isPermanentVisible]);
 
 
 
