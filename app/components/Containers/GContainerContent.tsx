@@ -18,7 +18,7 @@ export function GContainerContent({ children }: GContainerContentProps) {
   }, []);
 
   return (
-    <div className=" absolute bg-black mt-24">
+    <div className="h-auto absolute bg-black mt-64">
       <Fade in={true} timeout={1000}>
         <div className="relative text-gray-500 font-inter-tight font-semibold text-3xl leading-58 flex flex-col items-center gap-20 mt20 text-center h-400">
           <div

@@ -10,8 +10,49 @@ import { GContainerMenu } from '../components/Containers/GContainerMenu';
 import { GContainerMenuOptions } from '../components/Containers/GContainerMenuOptions';
 import { GContainer } from '../components/Containers/GContainer';
 import { GContainerContent } from '../components/Containers/GContainerContent';
+import { useEffect, useRef, useState } from 'react';
+import { Fade } from '@mui/material';
+
+
+
 
 export default function Home() {
+
+
+
+  const myComponentRef = useRef<HTMLDivElement | null>(null);
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5, // Defina o valor conforme necessário
+    };
+
+    const callback = (entries: any[]) => {
+      const entry = entries[0];
+      setIsVisible(entry.isIntersecting);
+    };
+
+    const observer = new IntersectionObserver(callback, options);
+    if (myComponentRef.current) {
+      observer.observe(myComponentRef.current);
+    }
+
+    return () => {
+      if (myComponentRef.current) {
+        observer.unobserve(myComponentRef.current);
+      }
+    };
+  }, []);
+
+
+
+
+
+
   return (
     <GMainContainer>
       <GContainerMenu>
@@ -37,10 +78,23 @@ export default function Home() {
           <GButtonOrca textButton='Solicitar Orçamento' />
         </GContainerContent>
       </GContainer>
-      <div className=' h-72 bg-black'></div>
-      <h1 className='text-9xl'>teste</h1>
-
-
+      <div className='h-96 bg-black'></div>
+      <div className='flex flex-col items-center text-center bg-black w-full'>
+        <GTitle className=' text-white' text='Projetos Selecionados' />
+        <div className='flex justify-center' ref={myComponentRef}>
+          <Fade in={isVisible} timeout={1000}>
+            <Image
+              quality={100}
+              sizes="100vw"
+              alt='imagem 1'
+              src="/foto1.jpg"
+              width={0}
+              height={0}
+              className='mt-10 w-9/12 h-auto rounded-3xl my-image-1'
+            />
+          </Fade>
+        </div>
+      </div>
     </GMainContainer>
   )
 }
