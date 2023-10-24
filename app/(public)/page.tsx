@@ -1,6 +1,5 @@
 'use client';
 import Image from 'next/image'
-import * as S from '../components/styles/styles'
 import { GbuttonContained } from '../components/Buttons/GButtonContained';
 import { GbuttonText } from '../components/Buttons/GButtonText';
 import { GbuttonTextHover } from '../components/Buttons/GButtonTextHover';
@@ -15,8 +14,6 @@ import { GContainerContent } from '../components/Containers/GContainerContent';
 export default function Home() {
   return (
     <GMainContainer>
-
-
       <GContainerMenu>
         <Image alt='teste' src='/logo.png' height="45" width="45" />
         <GContainerMenuOptions>
@@ -28,8 +25,15 @@ export default function Home() {
 
       <GContainer>
         <GContainerContent>
-          <GTitle
-            text='Estratégia de marca para empresas visionárias. ' />
+          <div className='inline'>
+            <GTitle
+              text='Estratégia de marca para' />
+            <div className='flex'>
+              <GTitle
+                text='empresas visionárias. ' />
+              <Image alt='teste' src="./moji.svg" width={0} height={0} className='ml-2 w-14 h-auto ' />
+            </div>
+          </div>
           <GButtonOrca textButton='Solicitar Orçamento' />
         </GContainerContent>
       </GContainer>

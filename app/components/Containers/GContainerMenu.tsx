@@ -8,7 +8,7 @@ export interface GContainerMenuProps {
 
 export function GContainerMenu({ children }: GContainerMenuProps) {
   return (
-    <div className="bg-black flex gap-4 justify-between px-100 pt-10"    >
+    <div className="bg-black flex gap-4 justify-evenly pt-2"    >
       {children}
     </div >
   );

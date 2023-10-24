@@ -8,7 +8,7 @@ export interface GContainerMenuOptionsProps {
 
 export function GContainerMenuOptions({ children }: GContainerMenuOptionsProps) {
   return (
-    <div className="flex gap-4 px-100 max-w-560 min-w-330 w-auto"    >
+    <div className="flex gap-4 px-100 max-w-560 min-w-330 w-auto "    >
       {children}
     </div >
   );
