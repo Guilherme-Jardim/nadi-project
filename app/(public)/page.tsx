@@ -10,49 +10,13 @@ import { GContainerMenu } from '../components/Containers/GContainerMenu';
 import { GContainerMenuOptions } from '../components/Containers/GContainerMenuOptions';
 import { GContainer } from '../components/Containers/GContainer';
 import { GContainerContent } from '../components/Containers/GContainerContent';
-import { useEffect, useRef, useState } from 'react';
 import { Fade } from '@mui/material';
+import { RenderElement } from '../components/RenderElement';
 
 
 
 
 export default function Home() {
-
-
-  const myComponentRef = useRef<HTMLDivElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const [isPermanentVisible, setIsPermanentVisible] = useState(false);
-
-  useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.5, // Defina o valor conforme necessário
-    };
-
-    const callback = (entries: any[]) => {
-      const entry = entries[0];
-      setIsVisible(entry.isIntersecting);
-      if (entry.isIntersecting && !isPermanentVisible) {
-        setIsPermanentVisible(true); // Definir como verdadeiro na primeira vez que se tornar visível
-      }
-    };
-
-    const observer = new IntersectionObserver(callback, options);
-    if (myComponentRef.current) {
-      observer.observe(myComponentRef.current);
-    }
-
-    return () => {
-      if (myComponentRef.current) {
-        observer.unobserve(myComponentRef.current);
-      }
-    };
-  }, [isPermanentVisible]);
-
-
-
-
 
 
   return (
@@ -83,19 +47,23 @@ export default function Home() {
       <div className='h-96 bg-black'></div>
       <div className='flex flex-col items-center text-center bg-black w-full'>
         <GTitle className=' text-white' text='Projetos Selecionados' />
-        <div className='flex justify-center' ref={myComponentRef}>
-          <Fade in={isPermanentVisible} timeout={1000}>
-            <Image
-              quality={100}
-              sizes="100vw"
-              alt='imagem 1'
-              src="/foto1.jpg"
-              width={0}
-              height={0}
-              className='mt-10 w-9/12 h-auto rounded-3xl my-image-1'
-            />
-          </Fade>
-        </div>
+        <RenderElement>
+          {(isVisible, isPermanentVisible) => (
+            <div className='flex justify-center'>
+              {isPermanentVisible ? (
+                <Image
+                  quality={100}
+                  sizes="100vw"
+                  alt='imagem 1'
+                  src="/foto1.jpg"
+                  width={0}
+                  height={0}
+                  className='mt-10 w-9/12 h-auto rounded-3xl my-image-1'
+                />
+              ) : null}
+            </div>
+          )}
+        </RenderElement>
       </div>
     </GMainContainer>
   )
