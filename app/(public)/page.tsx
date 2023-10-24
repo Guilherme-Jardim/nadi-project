@@ -84,7 +84,7 @@ export default function Home() {
       <div className='flex flex-col items-center text-center bg-black w-full'>
         <GTitle className=' text-white' text='Projetos Selecionados' />
         <div className='flex justify-center' ref={myComponentRef}>
-          <Fade in={isVisible} timeout={1000}>
+          <Fade in={isPermanentVisible} timeout={1000}>
             <Image
               quality={100}
               sizes="100vw"
