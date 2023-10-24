@@ -37,7 +37,7 @@ export default function Home() {
           <GButtonOrca textButton='Solicitar Orçamento' />
         </GContainerContent>
       </GContainer>
-      <div className=' h-60 bg-black'></div>
+      <div className=' h-72 bg-black'></div>
       <h1 className='text-9xl'>teste</h1>
 
 
