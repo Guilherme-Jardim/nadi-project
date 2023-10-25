@@ -1,12 +1,8 @@
+import React, { useRef, useState, useEffect } from 'react';
 import { Fade } from '@mui/material';
-import React, { useEffect, useRef, useState } from 'react';
 
-interface RenderElementProps {
-  children: (isVisible: boolean, isPermanentVisible: boolean) => React.ReactNode;
-}
-
-export function RenderElement({ children }: RenderElementProps) {
-  const myComponentRef = useRef<HTMLDivElement | null>(null);
+const IntersectionObserverComponent = ({ threshold = 0.5, children }: { threshold?: number, children: () => React.ReactElement }) => {
+  const myComponentRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isPermanentVisible, setIsPermanentVisible] = useState(false);
 
@@ -14,14 +10,14 @@ export function RenderElement({ children }: RenderElementProps) {
     const options = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.5, // Defina o valor conforme necessário
+      threshold: threshold,
     };
 
     const callback = (entries: IntersectionObserverEntry[]) => {
       const entry = entries[0];
       setIsVisible(entry.isIntersecting);
       if (entry.isIntersecting && !isPermanentVisible) {
-        setIsPermanentVisible(true); // Definir como verdadeiro na primeira vez que se tornar visível
+        setIsPermanentVisible(true);
       }
     };
 
@@ -35,11 +31,15 @@ export function RenderElement({ children }: RenderElementProps) {
         observer.unobserve(myComponentRef.current);
       }
     };
-  }, [isPermanentVisible]);
+  }, [isPermanentVisible, threshold]);
 
   return (
     <div ref={myComponentRef}>
-      {children(isVisible, isPermanentVisible)}
+      <Fade in={isPermanentVisible} timeout={1000}>
+        {children()}
+      </Fade>
     </div>
   );
-}
+};
+
+export default IntersectionObserverComponent;
