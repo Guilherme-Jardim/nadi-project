@@ -6,7 +6,7 @@ interface GTitleProps extends TypographyProps {
 
 export function GTitle({ text, ...rest }: GTitleProps) {
   return (
-    <Typography variant='h2' {...rest}>
+    <Typography className='font-bold' variant='h2' {...rest}>
       {text}
     </Typography>
 

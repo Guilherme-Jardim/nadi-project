@@ -36,9 +36,11 @@ export default function Home() {
         <GContainerContent>
           <div className='inline'>
             <GTitle
+              className='text-7xl'
               text='Estratégia de marca para' />
             <div className='flex'>
               <GTitle
+                className='text-7xl'
                 text='empresas visionárias. ' />
               <Image alt='teste' src="./moji.svg" width={0} height={0} className='ml-2 w-14 h-auto ' />
             </div>
@@ -59,7 +61,7 @@ export default function Home() {
                 src="/foto1.jpg"
                 width={0}
                 height={0}
-                className='mt-10 w-9/12 h-auto rounded-3xl my-image-1'
+                className='mt-10 w-11/12 h-auto rounded-3xl my-image-1'
               />
             </div>
           )}
@@ -74,7 +76,7 @@ export default function Home() {
                 src="/foto2.jpg"
                 width={0}
                 height={0}
-                className='mt-10 w-9/12 h-auto rounded-3xl my-image-1'
+                className='mt-10 w-11/12 h-auto rounded-3xl my-image-1'
               />
             </div>
           )}
@@ -89,19 +91,19 @@ export default function Home() {
                 src="/foto3.jpg"
                 width={0}
                 height={0}
-                className='mt-10 w-9/12 h-auto rounded-3xl my-image-1'
+                className='mt-10 w-11/12 h-auto rounded-3xl my-image-1'
               />
             </div>
           )}
         </RenderElement>
       </div>
-      <div className='absolute pt-16 mt-52'>
+      <div className='w-full absolute pt-16 mt-52'>
         <GContainerServicos>
-          <div className=' justify-between h-auto flex columns-2 items-start bg-black w-9/12'>
+          <div className='mr-auto ml-auto w-9/12 justify-between  h-auto flex columns-2 items-start bg-black '>
             <div className='text-white'>
               <GTitle text='Serviços' />
             </div>
-            <div className='border-l-2 border-gray-500 p-4 text-white space-y-1'>
+            <div className='border-l-2 border-gray-500 p-4 text-white space-y-1' style={{ paddingRight: '193px' }}>
               <GText text='Estratégia de Marca' />
               <GText text='Naming' />
               <GText text='Posicionamento' />
@@ -115,28 +117,28 @@ export default function Home() {
       </div>
       <div className='flex bg-black w-auto' style={{ height: '600px' }} />
       <div className='flex bg-black w-auto' style={{ height: '600px' }} >
-        <div className='   mt-16'>
+        <div className='w-full	 mt-16'>
           <GContainerServicos>
-            <div className=' justify-between h-auto flex columns-2 items-start  w-9/12'>
+            <div className='mr-auto ml-auto w-9/12 justify-between h-auto flex columns-2 items-start '>
               <div className='text-white ' >
                 <GTitle text='Processo' />
               </div>
-              <div className='border-l-2 border-gray-500 p-4' >
-                <div className='text-white gap-14 pl-4  '>
+              <div>
+                <div className='text-white'>
                   <GAccordion
                     title='Processo'
                     text='Será enviado um formulário completo com perguntas institucionais, visuais e conceitos para entendermos tudo sobre sua empresa. Assim, conseguimos definir uma linha de raciocínio eficiente para executar um projeto funcional e apropriado. Após o preenchimento, podemos marcar uma call para alinhar pontos importantes e analisar as perguntas e respostas como um todo.'
                     initiallyOpen={true} // O primeiro deve estar aberto
                   />
                 </div>
-                <div className='text-white gap-14 pl-4' >
+                <div className='text-white' >
                   <GAccordion
                     title='Processo'
                     text='Será enviado um formulário completo com perguntas institucionais, visuais e conceitos para entendermos tudo sobre sua empresa. Assim, conseguimos definir uma linha de raciocínio eficiente para executar um projeto funcional e apropriado. Após o preenchimento, podemos marcar uma call para alinhar pontos importantes e analisar as perguntas e respostas como um todo.'
                     initiallyOpen={false} // Os demais devem estar fechados
                   />
                 </div>
-                <div className='text-white gap-14 pl-4'>
+                <div className='text-white'>
                   <GAccordion
                     title='Processo'
                     text='Será enviado um formulário completo com perguntas institucionais, visuais e conceitos para entendermos tudo sobre sua empresa. Assim, conseguimos definir uma linha de raciocínio eficiente para executar um projeto funcional e apropriado. Após o preenchimento, podemos marcar uma call para alinhar pontos importantes e analisar as perguntas e respostas como um todo.'

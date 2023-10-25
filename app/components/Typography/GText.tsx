@@ -6,7 +6,7 @@ interface GTextProps extends TypographyProps {
 
 export function GText({ text, ...rest }: GTextProps) {
   return (
-    <Typography className=' text-left text-2xl' {...rest}>
+    <Typography className=' text-left text-4xl' {...rest}>
       {text}
     </Typography>
 

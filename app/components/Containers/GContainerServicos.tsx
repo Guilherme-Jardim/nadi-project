@@ -28,7 +28,7 @@ export function GContainerServicos({ children }: GContainerServicosProps) {
   return (
     <div
       ref={ref}
-      className={` bg-black w-screen h-auto mr-52 ml-52 animated-container transition-opacity ease-in-out ${inView ? 'translate-y-0' : 'translate-y-96'}`}
+      className={`  animated-container transition-opacity ease-in-out ${inView ? 'translate-y-0' : 'translate-y-96'}`}
       style={containerStyle}
     >
       <Fade in={inView} timeout={1000}>
