@@ -95,44 +95,28 @@ export default function Home() {
           )}
         </RenderElement>
       </div>
-      <GContainerServicos>
-        <div className='flex items-center justify-between absolute bg-red-400 w-9/12'>
-          <div className='text-white mr-10'>
-            <GTitle text='Serviços' />
-          </div>
-          <div className='text-white'>
-            <div className='mb-2'>
-              <GTitle text='Título do Serviço' />
+      <div className='absolute pt-16'>
+        <GContainerServicos>
+          <div className=' justify-between h-auto flex columns-2 items-center bg-black w-9/12'>
+            <div className='text-white'>
+              <GTitle text='Serviços' />
+            </div>
+            <div className='border-l-2 border-gray-500 p-4 text-white space-y-1'>
               <GText text='Estratégia de Marca' />
-            </div>
-            <div className='mb-2'>
-              <GTitle text='Título do Serviço' />
               <GText text='Naming' />
-            </div>
-            <div className='mb-2'>
-              <GTitle text='Título do Serviço' />
               <GText text='Posicionamento' />
-            </div>
-            <div className='mb-2'>
-              <GTitle text='Título do Serviço' />
               <GText text='Identidade Visual' />
-            </div>
-            <div className='mb-2'>
-              <GTitle text='Título do Serviço' />
               <GText text='Comunicação Verbal' />
-            </div>
-            <div className='mb-2'>
-              <GTitle text='Título do Serviço' />
               <GText text='Web Design' />
-            </div>
-            <div className='mb-2'>
-              <GTitle text='Título do Serviço' />
               <GText text='Processo Comercial' />
             </div>
           </div>
-        </div>
-      </GContainerServicos>
+        </GContainerServicos>
+      </div>
+      <div className='flex bg-black w-auto' style={{ height: '600px' }}>
 
+        <GText text='teste' />
+      </div>
     </GMainContainer>
   )
 }
