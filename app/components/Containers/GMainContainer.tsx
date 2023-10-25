@@ -8,7 +8,7 @@ export interface GMainContainerProps {
 
 export function GMainContainer({ children }: GMainContainerProps) {
   return (
-    <div className="inline m-0 p-0 font-sans text-base leading-5 box-border"    >
+    <div className="bg-black inline m-0 p-0 font-sans text-base leading-5 box-border"    >
       {children}
     </div >
   );

@@ -10,10 +10,10 @@ import { GContainerMenu } from '../components/Containers/GContainerMenu';
 import { GContainerMenuOptions } from '../components/Containers/GContainerMenuOptions';
 import { GContainer } from '../components/Containers/GContainer';
 import { GContainerContent } from '../components/Containers/GContainerContent';
-import { Fade } from '@mui/material';
 import { RenderElement } from '../components/RenderElement';
 import { GContainerServicos } from '../components/Containers/GContainerServicos';
 import { GText } from '../components/Typography/GText';
+import GAccordion from '../components/GAccordion';
 
 
 
@@ -114,24 +114,42 @@ export default function Home() {
         </GContainerServicos>
       </div>
       <div className='flex bg-black w-auto' style={{ height: '600px' }} />
+      <div className='flex bg-black w-auto' style={{ height: '600px' }} >
 
+        <div className='   mt-16'>
+          <GContainerServicos>
+            <div className=' justify-between h-auto flex columns-2 items-center  w-9/12'>
+              <div className='text-white ' >
+                <GTitle text='Processo' />
+              </div>
+              <div >
+                <div className='text-white gap-14 border-l-4 pl-4 border-gray-500 '>
+                  <GAccordion
+                    title='Processo'
+                    text='Será enviado um formulário completo com perguntas institucionais, visuais e conceitos para entendermos tudo sobre sua empresa. Assim, conseguimos definir uma linha de raciocínio eficiente para executar um projeto funcional e apropriado. Após o preenchimento, podemos marcar uma call para alinhar pontos importantes e analisar as perguntas e respostas como um todo.'
+                    initiallyOpen={true} // O primeiro deve estar aberto
+                  />
+                </div>
+                <div className='text-white gap-14 border-l-4 pl-4 border-gray-500 ' >
+                  <GAccordion
+                    title='Processo'
+                    text='Será enviado um formulário completo com perguntas institucionais, visuais e conceitos para entendermos tudo sobre sua empresa. Assim, conseguimos definir uma linha de raciocínio eficiente para executar um projeto funcional e apropriado. Após o preenchimento, podemos marcar uma call para alinhar pontos importantes e analisar as perguntas e respostas como um todo.'
+                    initiallyOpen={false} // Os demais devem estar fechados
+                  />
+                </div>
+                <div className='text-white gap-14 border-l-4 pl-4 border-gray-500'>
+                  <GAccordion
+                    title='Processo'
+                    text='Será enviado um formulário completo com perguntas institucionais, visuais e conceitos para entendermos tudo sobre sua empresa. Assim, conseguimos definir uma linha de raciocínio eficiente para executar um projeto funcional e apropriado. Após o preenchimento, podemos marcar uma call para alinhar pontos importantes e analisar as perguntas e respostas como um todo.'
+                    initiallyOpen={false} // Os demais devem estar fechados
+                  />
+                </div>
 
-
-
-      <div className=' mt-16'>
-        <GContainerServicos>
-          <div className=' justify-between h-auto flex columns-2 items-center bg-black w-9/12'>
-            <div className='text-white'>
-              <GTitle text='Processo' />
+              </div>
             </div>
-            <div className='border-l-2 border-gray-500 p-4 text-white space-y-1'>
-
-            </div>
-          </div>
-        </GContainerServicos>
+          </GContainerServicos>
+        </div>
       </div>
-
-
 
     </GMainContainer>
   )
