@@ -12,6 +12,8 @@ import { GContainer } from '../components/Containers/GContainer';
 import { GContainerContent } from '../components/Containers/GContainerContent';
 import { Fade } from '@mui/material';
 import { RenderElement } from '../components/RenderElement';
+import { GContainerServicos } from '../components/Containers/GContainerServicos';
+import { GText } from '../components/Typography/GText';
 
 
 
@@ -93,6 +95,44 @@ export default function Home() {
           )}
         </RenderElement>
       </div>
+      <GContainerServicos>
+        <div className='flex items-center justify-between absolute bg-red-400 w-9/12'>
+          <div className='text-white mr-10'>
+            <GTitle text='Serviços' />
+          </div>
+          <div className='text-white'>
+            <div className='mb-2'>
+              <GTitle text='Título do Serviço' />
+              <GText text='Estratégia de Marca' />
+            </div>
+            <div className='mb-2'>
+              <GTitle text='Título do Serviço' />
+              <GText text='Naming' />
+            </div>
+            <div className='mb-2'>
+              <GTitle text='Título do Serviço' />
+              <GText text='Posicionamento' />
+            </div>
+            <div className='mb-2'>
+              <GTitle text='Título do Serviço' />
+              <GText text='Identidade Visual' />
+            </div>
+            <div className='mb-2'>
+              <GTitle text='Título do Serviço' />
+              <GText text='Comunicação Verbal' />
+            </div>
+            <div className='mb-2'>
+              <GTitle text='Título do Serviço' />
+              <GText text='Web Design' />
+            </div>
+            <div className='mb-2'>
+              <GTitle text='Título do Serviço' />
+              <GText text='Processo Comercial' />
+            </div>
+          </div>
+        </div>
+      </GContainerServicos>
+
     </GMainContainer>
   )
 }
