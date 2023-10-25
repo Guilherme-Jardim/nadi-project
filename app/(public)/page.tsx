@@ -62,6 +62,36 @@ export default function Home() {
             </div>
           )}
         </RenderElement>
+        <RenderElement threshold={0.5}>
+          {() => (
+            <div className='flex justify-center'>
+              <Image
+                quality={100}
+                sizes="100vw"
+                alt='imagem 2'
+                src="/foto2.jpg"
+                width={0}
+                height={0}
+                className='mt-10 w-9/12 h-auto rounded-3xl my-image-1'
+              />
+            </div>
+          )}
+        </RenderElement>
+        <RenderElement threshold={0.5}>
+          {() => (
+            <div className='flex justify-center'>
+              <Image
+                quality={100}
+                sizes="100vw"
+                alt='imagem 3'
+                src="/foto3.jpg"
+                width={0}
+                height={0}
+                className='mt-10 w-9/12 h-auto rounded-3xl my-image-1'
+              />
+            </div>
+          )}
+        </RenderElement>
       </div>
     </GMainContainer>
   )
