@@ -58,9 +58,10 @@ export default function GAccordion({ title, text, initiallyOpen }: GAccordionPro
   return (
     <div>
       <Accordion
-        className="border border-white bg-black"
+        className=" border border-white bg-black"
         expanded={expanded === 'panel1'}
         onChange={handleChange('panel1')}
+        sx={{ maxWidth: '550px' }}
       >
         <AccordionSummary
           aria-controls="panel1d-content"
