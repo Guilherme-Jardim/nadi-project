@@ -95,7 +95,7 @@ export default function Home() {
           )}
         </RenderElement>
       </div>
-      <div className='absolute pt-16'>
+      <div className='absolute pt-16 mt-52'>
         <GContainerServicos>
           <div className=' justify-between h-auto flex columns-2 items-center bg-black w-9/12'>
             <div className='text-white'>
@@ -113,10 +113,26 @@ export default function Home() {
           </div>
         </GContainerServicos>
       </div>
-      <div className='flex bg-black w-auto' style={{ height: '600px' }}>
+      <div className='flex bg-black w-auto' style={{ height: '600px' }} />
 
-        <GText text='teste' />
+
+
+
+      <div className=' mt-16'>
+        <GContainerServicos>
+          <div className=' justify-between h-auto flex columns-2 items-center bg-black w-9/12'>
+            <div className='text-white'>
+              <GTitle text='Processo' />
+            </div>
+            <div className='border-l-2 border-gray-500 p-4 text-white space-y-1'>
+
+            </div>
+          </div>
+        </GContainerServicos>
       </div>
+
+
+
     </GMainContainer>
   )
 }

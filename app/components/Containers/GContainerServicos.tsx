@@ -22,13 +22,13 @@ export function GContainerServicos({ children }: GContainerServicosProps) {
 
   const containerStyle = {
     transform: `translateY(${marginTop}px)`,
-    transition: 'transform 2s cubic-bezier(0.68, -0.55, 0.27, 1.55)', // Ajuste a duração e a função de temporização conforme necessário
+    transition: 'transform 1.5s ease-in-out',
   };
 
   return (
     <div
       ref={ref}
-      className={`w-screen h-auto m-52 animated-container transition-opacity ease-in-out ${inView ? 'translate-y-0' : 'translate-y-96'}`}
+      className={`w-screen h-auto mr-52 ml-52 animated-container transition-opacity ease-in-out ${inView ? 'translate-y-0' : 'translate-y-96'}`}
       style={containerStyle}
     >
       <Fade in={inView} timeout={1000}>
