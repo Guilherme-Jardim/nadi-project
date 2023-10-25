@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Fade } from '@mui/material';
 
-const IntersectionObserverComponent = ({ threshold = 0.5, children }: { threshold?: number, children: () => React.ReactElement }) => {
+export const RenderElement = ({ threshold = 0.5, children }: { threshold?: number, children: () => React.ReactElement }) => {
   const myComponentRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isPermanentVisible, setIsPermanentVisible] = useState(false);
@@ -42,4 +42,3 @@ const IntersectionObserverComponent = ({ threshold = 0.5, children }: { threshol
   );
 };
 
-export default IntersectionObserverComponent;

@@ -47,20 +47,18 @@ export default function Home() {
       <div className='h-96 bg-black'></div>
       <div className='flex flex-col items-center text-center bg-black w-full'>
         <GTitle className=' text-white' text='Projetos Selecionados' />
-        <RenderElement>
-          {(isVisible, isPermanentVisible) => (
+        <RenderElement threshold={0.5}>
+          {() => (
             <div className='flex justify-center'>
-              {isPermanentVisible ? (
-                <Image
-                  quality={100}
-                  sizes="100vw"
-                  alt='imagem 1'
-                  src="/foto1.jpg"
-                  width={0}
-                  height={0}
-                  className='mt-10 w-9/12 h-auto rounded-3xl my-image-1'
-                />
-              ) : null}
+              <Image
+                quality={100}
+                sizes="100vw"
+                alt='imagem 1'
+                src="/foto1.jpg"
+                width={0}
+                height={0}
+                className='mt-10 w-9/12 h-auto rounded-3xl my-image-1'
+              />
             </div>
           )}
         </RenderElement>
