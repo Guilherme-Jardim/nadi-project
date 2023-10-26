@@ -14,12 +14,18 @@ import { RenderElement } from '../components/RenderElement';
 import { GContainerServicos } from '../components/Containers/GContainerServicos';
 import { GText } from '../components/Typography/GText';
 import GAccordion from '../components/GAccordion';
+import React from 'react';
 
 
 
 
 export default function Home() {
+  const [expanded, setExpanded] = React.useState<string | false>(false);
 
+  const handleChange =
+    (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+      setExpanded(isExpanded ? panel : false);
+    };
 
   return (
     <GMainContainer>
@@ -120,31 +126,29 @@ export default function Home() {
         <div className='w-full	 mt-16'>
           <GContainerServicos>
             <div className='mr-auto ml-auto w-9/12 justify-between h-auto flex columns-2 items-start '>
-              <div className='text-white ' >
+              <div className='text-white '>
                 <GTitle text='Processo' />
               </div>
               <div>
-                <div className='text-white'>
-                  <GAccordion
-                    title='Processo'
-                    text='Será enviado um formulário completo com perguntas institucionais, visuais e conceitos para entendermos tudo sobre sua empresa. Assim, conseguimos definir uma linha de raciocínio eficiente para executar um projeto funcional e apropriado. Após o preenchimento, podemos marcar uma call para alinhar pontos importantes e analisar as perguntas e respostas como um todo.'
-                    initiallyOpen={true} // O primeiro deve estar aberto
-                  />
-                </div>
-                <div className='text-white' >
-                  <GAccordion
-                    title='Processo'
-                    text='Será enviado um formulário completo com perguntas institucionais, visuais e conceitos para entendermos tudo sobre sua empresa. Assim, conseguimos definir uma linha de raciocínio eficiente para executar um projeto funcional e apropriado. Após o preenchimento, podemos marcar uma call para alinhar pontos importantes e analisar as perguntas e respostas como um todo.'
-                    initiallyOpen={false} // Os demais devem estar fechados
-                  />
-                </div>
-                <div className='text-white'>
-                  <GAccordion
-                    title='Processo'
-                    text='Será enviado um formulário completo com perguntas institucionais, visuais e conceitos para entendermos tudo sobre sua empresa. Assim, conseguimos definir uma linha de raciocínio eficiente para executar um projeto funcional e apropriado. Após o preenchimento, podemos marcar uma call para alinhar pontos importantes e analisar as perguntas e respostas como um todo.'
-                    initiallyOpen={false} // Os demais devem estar fechados
-                  />
-                </div>
+                <GAccordion
+                  items={[
+                    {
+                      title: 'Briefing',
+                      content:
+                        'Será enviado um formulário completo com perguntas institucionais, visuais e conceitos para entendermos tudo sobre sua empresa. Assim, conseguimos definir uma linha de raciocínio eficiente para executar um projeto funcional e apropriado. Após o preenchimento, podemos marcar uma call para alinhar pontos importantes e analisar as perguntas e respostas como um todo.',
+                    },
+                    {
+                      title: 'Estratégia',
+                      content:
+                        'Estudaremos os pontos institucionais do briefing para serem representados em características que nos ajudem a encontrar resultados para o seu posicionamento mercadológico. Esta metodologia reforça ainda mais os resultados da parte estética geral.',
+                    },
+                    {
+                      title: 'Criação',
+                      content:
+                        'Após a definição estratégica, serão feitas mais pesquisas voltadas para a parte de referências visuais, chegando em um resultado original e principalmente, funcional. O mapping das ideias e conceitos nos direciona para os rascunhos, ideias e execução digital. Será criada então a identidade visual, composta pelo logo e elementos de apoio que complementam a marca.',
+                    },
+                  ]}
+                />
               </div>
             </div>
           </GContainerServicos>
