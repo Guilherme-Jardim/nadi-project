@@ -15,6 +15,7 @@ import { GContainerServicos } from '../components/Containers/GContainerServicos'
 import { GText } from '../components/Typography/GText';
 import GAccordion from '../components/GAccordion';
 import React from 'react';
+import { GDepoiment } from '../components/GDepoiment';
 
 
 
@@ -26,6 +27,8 @@ export default function Home() {
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
     };
+
+
 
   return (
     <GMainContainer>
@@ -154,6 +157,27 @@ export default function Home() {
           </GContainerServicos>
         </div>
       </div>
-    </GMainContainer>
+      <GDepoiment depoiments={[
+        {
+          depoimenttext: "111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
+          depoimentalt: "Alt 1",
+          depoimentsrc: "/foto1.jpg",
+        },
+        {
+          depoimenttext: "222asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
+          depoimentalt: "Alt 2",
+          depoimentsrc: "/foto2.jpg",
+        },
+        {
+          depoimenttext: "333asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
+          depoimentalt: "Alt 3",
+          depoimentsrc: "/foto3.jpg",
+        },
+        {
+          depoimenttext: "444asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
+          depoimentalt: "Alt 4",
+          depoimentsrc: "/foto2.jpg",
+        }
+      ]} />    </GMainContainer>
   )
 }
