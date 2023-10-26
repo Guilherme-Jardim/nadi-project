@@ -21,12 +21,7 @@ import { GDepoiment } from '../components/GDepoiment';
 
 
 export default function Home() {
-  const [expanded, setExpanded] = React.useState<string | false>(false);
 
-  const handleChange =
-    (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-      setExpanded(isExpanded ? panel : false);
-    };
 
 
 
@@ -157,27 +152,36 @@ export default function Home() {
           </GContainerServicos>
         </div>
       </div>
-      <GDepoiment depoiments={[
-        {
-          depoimenttext: "111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
-          depoimentalt: "Alt 1",
-          depoimentsrc: "/foto1.jpg",
-        },
-        {
-          depoimenttext: "222asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
-          depoimentalt: "Alt 2",
-          depoimentsrc: "/foto2.jpg",
-        },
-        {
-          depoimenttext: "333asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
-          depoimentalt: "Alt 3",
-          depoimentsrc: "/foto3.jpg",
-        },
-        {
-          depoimenttext: "444asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
-          depoimentalt: "Alt 4",
-          depoimentsrc: "/foto2.jpg",
-        }
-      ]} />    </GMainContainer>
+      <div className='flex h-screen bg-black'>
+        <div className='w-full flex justify-center'>
+          <div className='relative' style={{ margin: '0 auto' }}>
+            <GContainerServicos >
+              <GDepoiment currentIndex={1} depoiments={[
+                {
+                  depoimenttext: "teste 1  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
+                  depoimentalt: "Alt 1",
+                  depoimentsrc: "/foto1.jpg",
+                },
+                {
+                  depoimenttext: "teste 2  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
+                  depoimentalt: "Alt 2",
+                  depoimentsrc: "/foto2.jpg",
+                },
+                {
+                  depoimenttext: "teste 3  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
+                  depoimentalt: "Alt 3",
+                  depoimentsrc: "/foto3.jpg",
+                },
+                {
+                  depoimenttext: "teste 4  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
+                  depoimentalt: "Alt 4",
+                  depoimentsrc: "/foto2.jpg",
+                }
+              ]} />
+            </GContainerServicos>
+          </div>
+        </div>
+      </div>
+    </GMainContainer>
   )
 }

@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Typography, Button } from '@mui/material';
+import { Typography, IconButton } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 type Depoiment = {
   depoimenttext: string;
@@ -12,8 +14,9 @@ type DepoimentsProps = {
   depoiments: Depoiment[];
 };
 
-export const GDepoiment = ({ depoiments }: DepoimentsProps) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+export const GDepoiment = ({ depoiments, currentIndex }: DepoimentsProps & { currentIndex: number }) => {
+  const [currentIndexState, setCurrentIndex] = useState<number>(currentIndex || 0);
+  const [isPaused, setPaused] = useState(false);
 
   const nextDepoiment = () => {
     setCurrentIndex((prevIndex) => (prevIndex === depoiments.length - 1 ? 0 : prevIndex + 1));
@@ -23,19 +26,71 @@ export const GDepoiment = ({ depoiments }: DepoimentsProps) => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? depoiments.length - 1 : prevIndex - 1));
   };
 
-  return (
-    <div className="flex justify-between items-center w-fit">
-      <Button onClick={prevDepoiment} variant="contained" color="primary">
-        &#8249; Anterior
-      </Button>
-      <div className="flex flex-col items-center space-x-4 ">
+  const autoNextDepoiment = () => {
+    if (!isPaused) {
+      nextDepoiment();
+    }
+  };
 
-        <Typography>{depoiments[currentIndex].depoimenttext}</Typography>
-        <Image alt={depoiments[currentIndex].depoimentalt} src={depoiments[currentIndex].depoimentsrc} width={200} height={200} />
+
+  const handleMouseEnter = () => {
+    setPaused(true);
+  };
+
+  const handleMouseLeave = () => {
+    setPaused(false);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(autoNextDepoiment, 3000);
+    return () => clearInterval(interval);
+  }, [autoNextDepoiment, currentIndexState, isPaused]);
+
+  return (
+    <div className="absolute h-screen flex items-start" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <div className="bg-black flex columns-3" >
+        <IconButton
+          onClick={prevDepoiment}
+          color="default"
+          sx={{
+            display: 'flex',
+            color: 'white',
+            '&:hover': {
+              color: 'gray',
+            },
+          }}
+        >
+          <ArrowBackIcon />
+        </IconButton>
+        <div className="flex flex-col items-center space-x-4" style={{ maxWidth: '550px', alignItems: 'flex-start' }}>
+          <Typography className="text-white text-center" style={{ wordWrap: 'break-word', maxWidth: '100%' }}>{depoiments[currentIndexState].depoimenttext}</Typography>
+          <Image
+            style={{ alignSelf: 'center' }}
+            alt={depoiments[currentIndexState].depoimentalt}
+            src={depoiments[currentIndexState].depoimentsrc}
+            width={0}
+            height={0}
+            className="w-24 rounded-full h-24"
+            quality={100}
+            sizes="100vw"
+          />
+        </div>
+        <IconButton
+          onClick={nextDepoiment}
+          color="default"
+          sx={{
+            color: 'white',
+            '&:hover': {
+              color: 'gray',
+            },
+          }}
+        >
+          <ArrowForwardIcon />
+        </IconButton>
       </div>
-      <Button onClick={nextDepoiment} variant="contained" color="primary">
-        Próximo &#8250;
-      </Button>
     </div>
+
+
+
   );
 };
