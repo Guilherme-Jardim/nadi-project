@@ -16,6 +16,7 @@ import { GText } from '../components/Typography/GText';
 import GAccordion from '../components/GAccordion';
 import React from 'react';
 import { GDepoiment } from '../components/GDepoiment';
+import Accordion from '@mui/material/Accordion';
 
 
 
@@ -152,36 +153,64 @@ export default function Home() {
           </GContainerServicos>
         </div>
       </div>
-      <div className='flex h-screen bg-black'>
-        <div className='w-full flex justify-center'>
-          <div className='relative' style={{ margin: '0 auto' }}>
-            <GContainerServicos >
-              <GDepoiment currentIndex={1} depoiments={[
-                {
-                  depoimenttext: "teste 1  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
-                  depoimentalt: "Alt 1",
-                  depoimentsrc: "/foto1.jpg",
-                },
-                {
-                  depoimenttext: "teste 2  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
-                  depoimentalt: "Alt 2",
-                  depoimentsrc: "/foto2.jpg",
-                },
-                {
-                  depoimenttext: "teste 3  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
-                  depoimentalt: "Alt 3",
-                  depoimentsrc: "/foto3.jpg",
-                },
-                {
-                  depoimenttext: "teste 4  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
-                  depoimentalt: "Alt 4",
-                  depoimentsrc: "/foto2.jpg",
-                }
-              ]} />
-            </GContainerServicos>
+
+
+
+
+      <GDepoiment currentIndex={1} depoiments={[
+        {
+          depoimenttext: "teste 1  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
+          depoimentalt: "Alt 1",
+          depoimentsrc: "/foto1.jpg",
+        },
+        {
+          depoimenttext: "teste 2  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
+          depoimentalt: "Alt 2",
+          depoimentsrc: "/foto2.jpg",
+        },
+        {
+          depoimenttext: "teste 3  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
+          depoimentalt: "Alt 3",
+          depoimentsrc: "/foto3.jpg",
+        },
+        {
+          depoimenttext: "teste 4  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
+          depoimentalt: "Alt 4",
+          depoimentsrc: "/foto2.jpg",
+        }
+      ]} />
+      <div className=' pt-28 flex justify-center items-center bg-black'>
+        <div className='flex columns-2 w-9/12'>
+          <div className='my-auto'>
+            <GText className='text-white align-middle' text='Fundada em 2019 pelo Diretor Criativo Rafael Carmona a Agência Birdo passou de um estúdio de design gráfico para uma agência que presta consultoria especializada em branding e identidade visual.' />
+          </div>
+
+          <div className='w-full'>
+            <Image
+              quality={100}
+              sizes="100vw"
+              alt='imagem 4'
+              src="/foto4.jpg"
+              width={0}
+              height={0}
+              className=' w-full h-auto rounded-3xl my-image-4'
+            />
           </div>
         </div>
       </div>
-    </GMainContainer>
+      <div className='flex justify-center bg-black'>
+        <div className='flex w-9/12 justify-start'>
+
+          <button className=" self-start font-sans font-semibold text-white bg-gray-600 border-none rounded-md cursor-pointer max-w-40 min-w-24 w-40 hover:text-gray-400">
+            Orçamento
+          </button>
+        </div>
+      </div>
+
+
+
+
+
+    </GMainContainer >
   )
 }

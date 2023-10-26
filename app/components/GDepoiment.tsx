@@ -47,9 +47,10 @@ export const GDepoiment = ({ depoiments, currentIndex }: DepoimentsProps & { cur
   }, [autoNextDepoiment, currentIndexState, isPaused]);
 
   return (
-    <div className="absolute h-screen flex items-start" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <div className="bg-black flex columns-3" >
+    <div className=" bg-black h-auto pt-20 flex justify-center items-center" >
+      <div className="bg-black flex columns-3" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
         <IconButton
+          className=' self-start p-5'
           onClick={prevDepoiment}
           color="default"
           sx={{
@@ -76,6 +77,7 @@ export const GDepoiment = ({ depoiments, currentIndex }: DepoimentsProps & { cur
           />
         </div>
         <IconButton
+          className=' self-start p-5'
           onClick={nextDepoiment}
           color="default"
           sx={{
