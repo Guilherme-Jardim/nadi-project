@@ -14,18 +14,30 @@ import { RenderElement } from '../components/RenderElement';
 import { GContainerServicos } from '../components/Containers/GContainerServicos';
 import { GText } from '../components/Typography/GText';
 import GAccordion from '../components/GAccordion';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { GDepoiment } from '../components/GDepoiment';
 import Accordion from '@mui/material/Accordion';
+import { GContainerDepoiments } from '../components/Containers/GContainerDepoiments';
+import { Fade } from '@mui/material';
 import { GContainerFooter } from '../components/Containers/GContainerFooter';
+import { useInView } from 'react-intersection-observer';
 
 
 
 
 export default function Home() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
 
-
-
+  useEffect(() => {
+    if (inView) {
+      setTimeout(() => {
+        setIsVisible(true);
+      }, 1000); // Ajuste o valor do timeout (em milissegundos) para suavizar a animação
+    }
+  }, [inView]);
 
   return (
     <GMainContainer>
@@ -157,35 +169,48 @@ export default function Home() {
 
 
 
+      <div className=' w-full absolute pt-16 mt-20'>
+        <GContainerDepoiments>
+          <GDepoiment currentIndex={1}
+            depoiments={[
+              {
+                depoimenttext: "teste 1  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
+                depoimentalt: "Alt 1",
+                depoimentsrc: "/foto1.jpg",
+              },
+              {
+                depoimenttext: "teste 2  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
+                depoimentalt: "Alt 2",
+                depoimentsrc: "/foto2.jpg",
+              },
+              {
+                depoimenttext: "teste 3  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
+                depoimentalt: "Alt 3",
+                depoimentsrc: "/foto3.jpg",
+              },
+              {
+                depoimenttext: "teste 4  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
+                depoimentalt: "Alt 4",
+                depoimentsrc: "/foto2.jpg",
+              }
+            ]
+            }
+          />
+        </GContainerDepoiments>
+      </div>
 
-      <GDepoiment currentIndex={1} depoiments={[
-        {
-          depoimenttext: "teste 1  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
-          depoimentalt: "Alt 1",
-          depoimentsrc: "/foto1.jpg",
-        },
-        {
-          depoimenttext: "teste 2  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
-          depoimentalt: "Alt 2",
-          depoimentsrc: "/foto2.jpg",
-        },
-        {
-          depoimenttext: "teste 3  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
-          depoimentalt: "Alt 3",
-          depoimentsrc: "/foto3.jpg",
-        },
-        {
-          depoimenttext: "teste 4  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
-          depoimentalt: "Alt 4",
-          depoimentsrc: "/foto2.jpg",
-        }
-      ]} />
-      <div className='pb-10 pt-28 flex justify-center items-center bg-black'>
-        <div className='flex columns-2 w-9/12'>
-          <div className='my-auto'>
-            <GText className='text-white align-middle' text='Fundada em 2019 pelo Diretor Criativo Rafael Carmona a Agência Birdo passou de um estúdio de design gráfico para uma agência que presta consultoria especializada em branding e identidade visual.' />
+      <div className=' flex bg-black w-auto' style={{ height: '300px' }} >
+      </div>
+
+      <div className=' pb-10 pt-28 flex justify-center items-center bg-black'>
+        <div className='flex columns-2 w-9/12 '>
+          <div ref={ref}>
+            <Fade in={isVisible}>
+              <div className='my-auto'>
+                <GText className='text-white align-middle' text='Fundada em 2019 pelo Diretor Criativo Rafael Carmona a Agência Birdo passou de um estúdio de design gráfico para uma agência que presta consultoria especializada em branding e identidade visual.' />
+              </div>
+            </Fade>
           </div>
-
           <div className='w-full'>
             <Image
               quality={100}
@@ -209,9 +234,9 @@ export default function Home() {
       </div>
 
 
-
-
       <GContainerFooter />
+
+
     </GMainContainer >
   )
 }
