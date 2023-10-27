@@ -17,6 +17,7 @@ import GAccordion from '../components/GAccordion';
 import React from 'react';
 import { GDepoiment } from '../components/GDepoiment';
 import Accordion from '@mui/material/Accordion';
+import { GContainerFooter } from '../components/Containers/GContainerFooter';
 
 
 
@@ -179,7 +180,7 @@ export default function Home() {
           depoimentsrc: "/foto2.jpg",
         }
       ]} />
-      <div className=' pt-28 flex justify-center items-center bg-black'>
+      <div className='pb-10 pt-28 flex justify-center items-center bg-black'>
         <div className='flex columns-2 w-9/12'>
           <div className='my-auto'>
             <GText className='text-white align-middle' text='Fundada em 2019 pelo Diretor Criativo Rafael Carmona a Agência Birdo passou de um estúdio de design gráfico para uma agência que presta consultoria especializada em branding e identidade visual.' />
@@ -210,7 +211,7 @@ export default function Home() {
 
 
 
-
+      <GContainerFooter />
     </GMainContainer >
   )
 }
