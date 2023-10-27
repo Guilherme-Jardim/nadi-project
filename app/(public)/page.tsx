@@ -16,16 +16,17 @@ import { GText } from '../components/Typography/GText';
 import GAccordion from '../components/GAccordion';
 import React, { useEffect, useState } from 'react';
 import { GDepoiment } from '../components/GDepoiment';
-import Accordion from '@mui/material/Accordion';
 import { GContainerDepoiments } from '../components/Containers/GContainerDepoiments';
-import { Fade } from '@mui/material';
 import { GContainerFooter } from '../components/Containers/GContainerFooter';
 import { useInView } from 'react-intersection-observer';
+import { GAboutContainer } from '../components/Containers/GAboutContainer';
 
 
 
 
 export default function Home() {
+
+
   const [isVisible, setIsVisible] = useState(false);
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -35,9 +36,11 @@ export default function Home() {
     if (inView) {
       setTimeout(() => {
         setIsVisible(true);
-      }, 1000); // Ajuste o valor do timeout (em milissegundos) para suavizar a animação
+      }, 500); // Ajuste o valor do timeout (em milissegundos) para suavizar a animação
     }
   }, [inView]);
+
+
 
   return (
     <GMainContainer>
@@ -174,7 +177,7 @@ export default function Home() {
           <GDepoiment currentIndex={1}
             depoiments={[
               {
-                depoimenttext: "teste 1  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
+                depoimenttext: "Adorei o trabalho da Nadine, ela é uma ótima profissional, me ajudou muito a conseguir clientes.",
                 depoimentalt: "Alt 1",
                 depoimentsrc: "/foto1.jpg",
               },
@@ -199,42 +202,35 @@ export default function Home() {
         </GContainerDepoiments>
       </div>
 
-      <div className=' flex bg-black w-auto' style={{ height: '300px' }} >
+      <div className=' flex bg-black w-auto' style={{ height: '500px' }} >
       </div>
 
-      <div ref={ref} className=' pb-10 pt-28 flex justify-center items-center bg-black'>
-        <Fade in={isVisible}>
-          <div className='flex columns-2 w-9/12 '>
-            <div className='my-auto'>
-              <GText className='text-white align-middle' text='Fundada em 2019 pelo Diretor Criativo Rafael Carmona a Agência Birdo passou de um estúdio de design gráfico para uma agência que presta consultoria especializada em branding e identidade visual.' />
-            </div>
-            <div className='w-full'>
-              <Image
-                quality={100}
-                sizes="100vw"
-                alt='imagem 4'
-                src="/foto4.jpg"
-                width={0}
-                height={0}
-                className=' w-full h-auto rounded-3xl my-image-4'
-              />
+
+
+
+      <div ref={ref}>
+        {isVisible && (
+          <div>
+            <GAboutContainer
+              classname='w-full h-auto rounded-3xl'
+              imgSrc='/foto4.jpg'
+              text='Fundada em 2019 pelo Diretor Criativo Rafael Carmona a Agência Birdo passou de um estúdio de design gráfico para uma agência que presta consultoria especializada em branding e identidade visual.'
+              alt='teste'
+            />
+
+            <div className='flex justify-center bg-black'>
+              <div className='flex w-9/12 justify-start'>
+                <button className="self-start font-sans font-semibold text-white bg-gray-600 border-none rounded-md cursor-pointer max-w-40 min-w-24 w-40 hover:text-gray-400">
+                  Orçamento
+                </button>
+              </div>
             </div>
           </div>
-        </Fade>
+        )}
       </div>
-      <div className='flex justify-center bg-black'>
-        <div className='flex w-9/12 justify-start'>
-
-          <button className=" self-start font-sans font-semibold text-white bg-gray-600 border-none rounded-md cursor-pointer max-w-40 min-w-24 w-40 hover:text-gray-400">
-            Orçamento
-          </button>
-        </div>
-      </div>
-
 
       <GContainerFooter />
       <GText className='p-5 text-white bg-black text-center' text='Todos os direitos reservados. ®' />
-
     </GMainContainer >
   )
 }

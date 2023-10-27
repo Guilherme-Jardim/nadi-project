@@ -52,7 +52,7 @@ export const GDepoiment = ({ depoiments, currentIndex }: DepoimentsProps & { cur
 
   return (
     <div className=" bg-black h-auto pt-20 flex justify-center items-center" >
-      <div className="bg-black flex columns-3" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
+      <div className=" bg-black flex columns-3" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
         <IconButton
           className=' self-start p-5'
           onClick={prevDepoiment}
@@ -70,21 +70,23 @@ export const GDepoiment = ({ depoiments, currentIndex }: DepoimentsProps & { cur
         <div className="flex flex-col items-center space-x-4" style={{ maxWidth: '550px', alignItems: 'flex-start' }}>
           <div className="relative flex flex-col items-center space-x-4" style={{ width: '550px', height: '165px', alignItems: 'flex-start' }}>
             <Typography className="rounded-3xl text-black bg-white text-center" style={{ wordWrap: 'break-word', maxWidth: '100%', border: '1px solid white', padding: '10px 20px' }}>{depoiments[currentIndexState].depoimenttext}</Typography>
-            <svg className='self-center absolute' style={{ top: '165px', left: '258px' }} xmlns={depoimentIcon} width="80" height="120" viewBox="0 0 80 120">
-              <path fill="white" d="M0 0 L10 20 L20 0 Z" />
-            </svg>
+            <div className='relative'>
+              <svg className='self-center absolute' style={{ left: '258px' }} xmlns={depoimentIcon} width="80" height="120" viewBox="0 0 80 120">
+                <path fill="white" d="M0 0 L10 20 L20 0 Z" />
+              </svg>
+              <Image
+                style={{ alignSelf: 'center', left: '220px', marginTop: '45px' }}
+                alt={depoiments[currentIndexState].depoimentalt}
+                src={depoiments[currentIndexState].depoimentsrc}
+                width={0}
+                height={0}
+                className="w-24 rounded-full h-24 relative"
+                quality={100}
+                sizes="100vw"
+              />
+            </div>
           </div>
 
-          <Image
-            style={{ alignSelf: 'center' }}
-            alt={depoiments[currentIndexState].depoimentalt}
-            src={depoiments[currentIndexState].depoimentsrc}
-            width={0}
-            height={0}
-            className="w-24 rounded-full h-24"
-            quality={100}
-            sizes="100vw"
-          />
         </div>
         <IconButton
           className=' self-start p-5'
