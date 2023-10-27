@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Typography, IconButton } from '@mui/material';
+import { Typography, IconButton, SvgIcon } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import depoimentIcon from '../../public/depoimentsicon.svg'
+
+
+
 
 type Depoiment = {
   depoimenttext: string;
@@ -64,7 +68,13 @@ export const GDepoiment = ({ depoiments, currentIndex }: DepoimentsProps & { cur
           <ArrowBackIcon />
         </IconButton>
         <div className="flex flex-col items-center space-x-4" style={{ maxWidth: '550px', alignItems: 'flex-start' }}>
-          <Typography className="text-white text-center" style={{ wordWrap: 'break-word', maxWidth: '100%' }}>{depoiments[currentIndexState].depoimenttext}</Typography>
+          <div className="relative flex flex-col items-center space-x-4" style={{ width: '550px', height: '165px', alignItems: 'flex-start' }}>
+            <Typography className="rounded-3xl text-black bg-white text-center" style={{ wordWrap: 'break-word', maxWidth: '100%', border: '1px solid white', padding: '10px 20px' }}>{depoiments[currentIndexState].depoimenttext}</Typography>
+            <svg className='self-center absolute' style={{ top: '165px', left: '258px' }} xmlns={depoimentIcon} width="80" height="120" viewBox="0 0 80 120">
+              <path fill="white" d="M0 0 L10 20 L20 0 Z" />
+            </svg>
+          </div>
+
           <Image
             style={{ alignSelf: 'center' }}
             alt={depoiments[currentIndexState].depoimentalt}
@@ -90,7 +100,7 @@ export const GDepoiment = ({ depoiments, currentIndex }: DepoimentsProps & { cur
           <ArrowForwardIcon />
         </IconButton>
       </div>
-    </div>
+    </div >
 
 
 

@@ -24,6 +24,7 @@ export default function GAccordion({ items }: GAccordionProps) {
   return (
     <div>
       {items.map((item, index) => (
+
         <Accordion
           className="border border-white bg-black"
           sx={{ maxWidth: '550px' }}

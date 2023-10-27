@@ -202,27 +202,25 @@ export default function Home() {
       <div className=' flex bg-black w-auto' style={{ height: '300px' }} >
       </div>
 
-      <div className=' pb-10 pt-28 flex justify-center items-center bg-black'>
-        <div className='flex columns-2 w-9/12 '>
-          <div ref={ref}>
-            <Fade in={isVisible}>
-              <div className='my-auto'>
-                <GText className='text-white align-middle' text='Fundada em 2019 pelo Diretor Criativo Rafael Carmona a Agência Birdo passou de um estúdio de design gráfico para uma agência que presta consultoria especializada em branding e identidade visual.' />
-              </div>
-            </Fade>
+      <div ref={ref} className=' pb-10 pt-28 flex justify-center items-center bg-black'>
+        <Fade in={isVisible}>
+          <div className='flex columns-2 w-9/12 '>
+            <div className='my-auto'>
+              <GText className='text-white align-middle' text='Fundada em 2019 pelo Diretor Criativo Rafael Carmona a Agência Birdo passou de um estúdio de design gráfico para uma agência que presta consultoria especializada em branding e identidade visual.' />
+            </div>
+            <div className='w-full'>
+              <Image
+                quality={100}
+                sizes="100vw"
+                alt='imagem 4'
+                src="/foto4.jpg"
+                width={0}
+                height={0}
+                className=' w-full h-auto rounded-3xl my-image-4'
+              />
+            </div>
           </div>
-          <div className='w-full'>
-            <Image
-              quality={100}
-              sizes="100vw"
-              alt='imagem 4'
-              src="/foto4.jpg"
-              width={0}
-              height={0}
-              className=' w-full h-auto rounded-3xl my-image-4'
-            />
-          </div>
-        </div>
+        </Fade>
       </div>
       <div className='flex justify-center bg-black'>
         <div className='flex w-9/12 justify-start'>
