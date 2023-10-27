@@ -235,7 +235,7 @@ export default function Home() {
 
 
       <GContainerFooter />
-
+      <GText className='p-5 text-white bg-black text-center' text='Todos os direitos reservados. ®' />
 
     </GMainContainer >
   )
