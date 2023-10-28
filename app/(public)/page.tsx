@@ -228,9 +228,11 @@ export default function Home() {
           </div>
         )}
       </div>
-
-      <GContainerFooter />
-      <GText className='p-5 text-white bg-black text-center' text='Todos os direitos reservados. ®' />
+      <div className='bg-black' style={{ height: '220px' }}></div>
+      <div className='pt-44 w-full bg-black' >
+        <GContainerFooter />
+        <GText className='p-5 text-white bg-black text-center' text='Todos os direitos reservados. ®' />
+      </div>
     </GMainContainer >
   )
 }
