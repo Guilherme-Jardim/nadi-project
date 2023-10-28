@@ -208,27 +208,16 @@ export default function Home() {
 
 
 
-      <div ref={ref}>
-        {isVisible && (
-          <div>
-            <GAboutContainer
-              classname='w-full h-auto rounded-3xl'
-              imgSrc='/foto4.jpg'
-              text='Fundada em 2019 pelo Diretor Criativo Rafael Carmona a Agência Birdo passou de um estúdio de design gráfico para uma agência que presta consultoria especializada em branding e identidade visual.'
-              alt='teste'
-            />
 
-            <div className='flex justify-center bg-black'>
-              <div className='flex w-9/12 justify-start'>
-                <button className="self-start font-sans font-semibold text-white bg-gray-600 border-none rounded-md cursor-pointer max-w-40 min-w-24 w-40 hover:text-gray-400">
-                  Orçamento
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
+      <div className=' pt-52 bg-black'>
+        <GAboutContainer
+          classname='w-full h-auto rounded-3xl'
+          imgSrc='/foto4.jpg'
+          text='Fundada em 2019 pelo Diretor Criativo Rafael Carmona a Agência Birdo passou de um estúdio de design gráfico para uma agência que presta consultoria especializada em branding e identidade visual.'
+          alt='teste'
+        />
       </div>
-      <div className='bg-black' style={{ height: '220px' }}></div>
+      <div className='bg-black' style={{ height: '100px' }}></div>
       <div className='pt-44 w-full bg-black' >
         <GContainerFooter />
         <GText className='p-5 text-white bg-black text-center' text='Todos os direitos reservados. ®' />
