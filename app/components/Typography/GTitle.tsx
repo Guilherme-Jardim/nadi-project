@@ -4,9 +4,9 @@ interface GTitleProps extends TypographyProps {
   text: string;
 }
 
-export function GTitle({ text, ...rest }: GTitleProps) {
+export function GTitle({ text }: GTitleProps) {
   return (
-    <Typography className='font-bold' variant='h2' {...rest}>
+    <Typography sx={{ fontWeight: 'bold', color: 'white' }} variant='h2' >
       {text}
     </Typography>
 

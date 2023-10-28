@@ -20,6 +20,7 @@ import { GContainerDepoiments } from '../components/Containers/GContainerDepoime
 import { GContainerFooter } from '../components/Containers/GContainerFooter';
 import { useInView } from 'react-intersection-observer';
 import { GAboutContainer } from '../components/Containers/GAboutContainer';
+import Link from 'next/link';
 
 
 
@@ -27,31 +28,12 @@ import { GAboutContainer } from '../components/Containers/GAboutContainer';
 export default function Home() {
 
 
-  const [isVisible, setIsVisible] = useState(false);
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-  });
-
-  useEffect(() => {
-    if (inView) {
-      setTimeout(() => {
-        setIsVisible(true);
-      }, 500); // Ajuste o valor do timeout (em milissegundos) para suavizar a animação
-    }
-  }, [inView]);
 
 
 
   return (
     <GMainContainer>
-      <GContainerMenu>
-        <Image alt='teste' src='/logo.png' height="45" width="45" />
-        <GContainerMenuOptions>
-          <GbuttonText textButton='HOME' />
-          <GbuttonTextHover textButton='PORTIFÓLIO' />
-          <GbuttonContained textButton='CONTATO' />
-        </GContainerMenuOptions>
-      </GContainerMenu>
+
 
       <GContainer>
         <GContainerContent>
@@ -63,7 +45,7 @@ export default function Home() {
               <GTitle
                 className='text-7xl'
                 text='empresas visionárias. ' />
-              <Image alt='teste' src="./moji.svg" width={0} height={0} className='ml-2 w-14 h-auto ' />
+              <Image alt='teste' src="/home/moji.svg" width={0} height={0} className='ml-2 w-14 h-auto ' />
             </div>
           </div>
           <GButtonOrca textButton='Solicitar Orçamento' />
@@ -75,30 +57,34 @@ export default function Home() {
         <RenderElement threshold={0.5}>
           {() => (
             <div className='flex justify-center'>
-              <Image
-                quality={100}
-                sizes="100vw"
-                alt='imagem 1'
-                src="/foto1.jpg"
-                width={0}
-                height={0}
-                className='mt-10 w-11/12 h-auto rounded-3xl my-image-1'
-              />
+              <Link href="/gangzta">
+                <Image
+                  quality={100}
+                  sizes="100vw"
+                  alt='imagem 1'
+                  src="/home/foto1.jpg"
+                  width={0}
+                  height={0}
+                  className='mt-10 w-11/12 h-auto rounded-3xl my-image-1'
+                />
+              </Link>
             </div>
           )}
         </RenderElement>
         <RenderElement threshold={0.5}>
           {() => (
             <div className='flex justify-center'>
-              <Image
-                quality={100}
-                sizes="100vw"
-                alt='imagem 2'
-                src="/foto2.jpg"
-                width={0}
-                height={0}
-                className='mt-10 w-11/12 h-auto rounded-3xl my-image-1'
-              />
+              <Link href="/treinador-diego-rosa">
+                <Image
+                  quality={100}
+                  sizes="100vw"
+                  alt='imagem 2'
+                  src="/home/foto2.jpg"
+                  width={0}
+                  height={0}
+                  className='mt-10 w-11/12 h-auto rounded-3xl my-image-1'
+                />
+              </Link>
             </div>
           )}
         </RenderElement>
@@ -109,7 +95,7 @@ export default function Home() {
                 quality={100}
                 sizes="100vw"
                 alt='imagem 3'
-                src="/foto3.jpg"
+                src="/home/foto3.jpg"
                 width={0}
                 height={0}
                 className='mt-10 w-11/12 h-auto rounded-3xl my-image-1'
@@ -172,56 +158,15 @@ export default function Home() {
 
 
 
-      <div className=' w-full absolute pt-16 mt-20'>
-        <GContainerDepoiments>
-          <GDepoiment currentIndex={1}
-            depoiments={[
-              {
-                depoimenttext: "Adorei o trabalho da Nadine, ela é uma ótima profissional, me ajudou muito a conseguir clientes.",
-                depoimentalt: "Alt 1",
-                depoimentsrc: "/foto1.jpg",
-              },
-              {
-                depoimenttext: "teste 2  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
-                depoimentalt: "Alt 2",
-                depoimentsrc: "/foto2.jpg",
-              },
-              {
-                depoimenttext: "teste 3  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
-                depoimentalt: "Alt 3",
-                depoimentsrc: "/foto3.jpg",
-              },
-              {
-                depoimenttext: "teste 4  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
-                depoimentalt: "Alt 4",
-                depoimentsrc: "/foto2.jpg",
-              }
-            ]
-            }
-          />
-        </GContainerDepoiments>
-      </div>
-
-      <div className=' flex bg-black w-auto' style={{ height: '500px' }} >
-      </div>
 
 
 
 
 
-      <div className=' pt-52 bg-black'>
-        <GAboutContainer
-          classname='w-full h-auto rounded-3xl'
-          imgSrc='/foto4.jpg'
-          text='Fundada em 2019 pelo Diretor Criativo Rafael Carmona a Agência Birdo passou de um estúdio de design gráfico para uma agência que presta consultoria especializada em branding e identidade visual.'
-          alt='teste'
-        />
-      </div>
-      <div className='bg-black' style={{ height: '100px' }}></div>
-      <div className='pt-44 w-full bg-black' >
-        <GContainerFooter />
-        <GText className='p-5 text-white bg-black text-center' text='Todos os direitos reservados. ®' />
-      </div>
+
+
+
+
     </GMainContainer >
   )
 }

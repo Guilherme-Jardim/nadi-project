@@ -2,6 +2,7 @@
 
 import { ReactNode } from "react";
 import { GText } from "../Typography/GText";
+import Link from "next/link";
 
 export interface GContainerFooterProps {
 }
@@ -16,9 +17,11 @@ export function GContainerFooter({ }: GContainerFooterProps) {
         <button>
           <GText className="text-2xl" text="Behance" />
         </button>
-        <button>
-          <GText className="text-2xl" text="WhatsApp" />
-        </button>
+        <Link href="https://wa.me/5554999770606?text=Ol%C3%A1%2C+vim+pelo+site%21">
+          <button>
+            <GText className="text-2xl" text="WhatsApp" />
+          </button>
+        </Link>
         <button>
           <GText className="text-2xl" text="2023. Caxias do Sul – Brasil" />
         </button>

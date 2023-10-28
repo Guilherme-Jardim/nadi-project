@@ -1,5 +1,17 @@
 import type { Metadata } from 'next'
 import "../components/globals.css"
+import { GbuttonContained } from '../components/Buttons/GButtonContained'
+import { GbuttonText } from '../components/Buttons/GButtonText'
+import { GbuttonTextHover } from '../components/Buttons/GButtonTextHover'
+import { GContainerMenu } from '../components/Containers/GContainerMenu'
+import { GContainerMenuOptions } from '../components/Containers/GContainerMenuOptions'
+import Image from 'next/image'
+import { GAboutContainer } from '../components/Containers/GAboutContainer'
+import { GContainerFooter } from '../components/Containers/GContainerFooter'
+import { GText } from '../components/Typography/GText'
+import Link from 'next/link'
+import { GContainerDepoiments } from '../components/Containers/GContainerDepoiments'
+import { GDepoiment } from '../components/GDepoiment'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -13,7 +25,75 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-Br">
-      <body >{children}</body>
+      <body >
+        <GContainerMenu>
+          <Image alt='teste' src='/home/logo.png' height="45" width="45" />
+          <GContainerMenuOptions>
+            <Link href="/">
+              <GbuttonText textButton='HOME' />
+            </Link>
+            <GbuttonTextHover textButton='PORTIFÓLIO' />
+            <GbuttonContained textButton='CONTATO' />
+          </GContainerMenuOptions>
+        </GContainerMenu>
+
+        {children}
+
+
+
+
+        <div className=' w-full absolute pt-16 mt-20'>
+          <GContainerDepoiments>
+            <GDepoiment currentIndex={1}
+              depoiments={[
+                {
+                  depoimenttext: "Adorei o trabalho da Nadine, ela é uma ótima profissional, me ajudou muito a conseguir clientes.",
+                  depoimentalt: "Alt 1",
+                  depoimentsrc: "/home/foto1.jpg",
+                },
+                {
+                  depoimenttext: "teste 2  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
+                  depoimentalt: "Alt 2",
+                  depoimentsrc: "/home/foto2.jpg",
+                },
+                {
+                  depoimenttext: "teste 3  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
+                  depoimentalt: "Alt 3",
+                  depoimentsrc: "/home/foto3.jpg",
+                },
+                {
+                  depoimenttext: "teste 4  111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha111asudhuashdusdha asuhdaushduashdaus asudhausdasudasdu",
+                  depoimentalt: "Alt 4",
+                  depoimentsrc: "/home/foto2.jpg",
+                }
+              ]
+              }
+            />
+          </GContainerDepoiments>
+        </div>
+
+
+
+        <div className=' flex bg-black w-auto' style={{ height: '500px' }} >
+        </div>
+
+
+
+        <div className=' pt-52 bg-black'>
+          <GAboutContainer
+            classname='w-full h-auto rounded-3xl'
+            imgSrc='/foto4.jpg'
+            text='Fundada em 2019 pelo Diretor Criativo Rafael Carmona a Agência Birdo passou de um estúdio de design gráfico para uma agência que presta consultoria especializada em branding e identidade visual.'
+            alt='teste'
+          />
+        </div>
+        <div className='bg-black' style={{ height: '100px' }}></div>
+        <div className='pt-44 w-full bg-black' >
+          <GContainerFooter />
+          <GText className='p-5 text-white bg-black text-center' text='Todos os direitos reservados. ®' />
+        </div>
+
+      </body>
     </html>
   )
 }

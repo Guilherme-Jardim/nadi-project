@@ -1,9 +1,10 @@
+'use client';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Typography, IconButton, SvgIcon } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import depoimentIcon from '../../public/depoimentsicon.svg'
+import depoimentIcon from '../../public/home/depoimentsicon.svg'
 
 
 
